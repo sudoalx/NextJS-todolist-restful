@@ -70,3 +70,24 @@ export async function PUT(request: Request, { params }: Segments) {
     );
   }
 }
+
+export async function DELETE(req: Request, { params }: Segments) {
+  const todo = await getTodo(params.id);
+
+  if (!todo) {
+    return NextResponse.json(
+      {
+        message: `Todo with id ${params.id} not found`,
+      },
+      { status: 404 }
+    );
+  }
+
+  await prisma.todo.delete({
+    where: {
+      id: params.id,
+    },
+  });
+
+  return NextResponse.json({ message: `Todo with id ${params.id} deleted` });
+}
