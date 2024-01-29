@@ -36,3 +36,20 @@ const postSchema = yup.object({
   complete: yup.boolean().optional().default(false),
 });
 
+export async function POST(req: Request) {
+  try {
+    const body = await postSchema.validate(await req.json());
+
+    const todo = await prisma.todo.create({
+      data: body,
+    });
+    return NextResponse.json(todo);
+  } catch (e: any) {
+    return NextResponse.json(
+      {
+        message: e.message,
+      },
+      { status: 400 }
+    );
+  }
+}
