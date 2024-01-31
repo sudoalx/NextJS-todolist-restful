@@ -10,14 +10,31 @@ This is the development environment setup needed to run the admin tools in devel
 
 The admin tools use a PostgreSQL database. The easiest way to get a PostgreSQL database up and running is to use Docker.
 
-- Run docker
+1. Install dependencies
+
+    ```bash
+    pnpm install
+    ```
+
+2. Run docker
 Run the following command to start a PostgreSQL database in a Docker container:
 
     ```bash
     docker-compose up -d
     ```
 
-- Create the database
+3. Setup .env file
+Copy the `.env.sample` file to `.env` and fill in the values for the database connection.
+
+    ```bash
+    cp .env.sample .env
+    ```
+
+    ```bash
+    DATABASE_URL="postgresql://<username>:<password>@localhost:5432/<database>?schema=public"
+    ```
+
+4. Create the database
 Run the following command to create the database with prisma:
 
     ```bash
@@ -25,7 +42,7 @@ Run the following command to create the database with prisma:
     pnpm dlx prisma migrate dev --name init
     ```
 
-- Execute the database seed
+5. Execute the database seed
 
 Make a GET request to the following endpoint to seed the database (you can just use your browser for this):
 
@@ -33,4 +50,10 @@ Make a GET request to the following endpoint to seed the database (you can just 
     http://localhost:3000/api/seed
     ```
 
-    
+### Run the app
+
+Run the following command to start the app in development mode:
+
+```bash
+pnpm dev
+```
