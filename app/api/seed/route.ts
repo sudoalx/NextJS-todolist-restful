@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
   await prisma.todo.deleteMany();
@@ -32,7 +32,6 @@ export async function GET(request: Request) {
       },
     ],
   });
-  console.log(todo);
 
   return NextResponse.json({ message: "Seed executed!" });
 }
