@@ -3,6 +3,29 @@ import { SidebarItem } from ".";
 import Image from "next/image";
 import Link from "next/link";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import {
+  IoCalendarOutline,
+  IoCheckboxOutline,
+  IoListOutline,
+} from "react-icons/io5";
+
+const menuItems = [
+  {
+    icon: <IoCalendarOutline />,
+    path: "/dashboard",
+    label: "Dashboard",
+  },
+  {
+    icon: <IoCheckboxOutline />,
+    path: "/dashboard/rest-todos",
+    label: "Rest Todos",
+  },
+  {
+    icon: <IoListOutline />,
+    path: "/dashboard/server-actions",
+    label: "Server Actions",
+  },
+];
 
 export const Sidebar = () => {
   return (
@@ -29,17 +52,24 @@ export const Sidebar = () => {
         </div>
 
         <ul className="space-y-2 tracking-wide mt-8">
-          <SidebarItem />
+          {menuItems.map((item) => (
+            <SidebarItem
+              key={item.path}
+              icon={item.icon}
+              path={item.path}
+              label={item.label}
+            />
+          ))}
         </ul>
       </div>
 
       <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
         <button
-          className="px-4 py-3 flex items-center space-x-4 rounded-mdgroup w-full border hover:bg-red-500 rounded-md text-gray-300 hover:text-white transition duration-300"
+          className="px-4 py-3 flex items-center space-x-4 group w-full border hover:bg-red-500 rounded-lg text-gray-300 hover:text-white transition duration-300"
           aria-label="Logout"
         >
           <CiLogout />
-          <span className="group-hover:text-gray-400">Logout</span>
+          <span>Logout</span>
         </button>
       </div>
     </aside>
