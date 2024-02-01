@@ -53,12 +53,7 @@ export const Sidebar = () => {
 
         <ul className="space-y-2 tracking-wide mt-8">
           {menuItems.map((item) => (
-            <SidebarItem
-              key={item.path}
-              icon={item.icon}
-              path={item.path}
-              label={item.label}
-            />
+            <SidebarItem key={item.path} {...item} />
           ))}
         </ul>
       </div>
