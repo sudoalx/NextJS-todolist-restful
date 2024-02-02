@@ -29,8 +29,6 @@ export const createTodo = async (description: string): Promise<Todo> => {
     body: JSON.stringify(body),
   }).then((res) => res.json());
 
-  console.log(todo);
-
   return todo;
 };
 
