@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 import * as yup from "yup";
 
 export async function GET(request: Request) {
@@ -48,6 +48,24 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         message: e.message,
+      },
+      { status: 400 }
+    );
+  }
+}
+
+export async function DELETE(req: Request) {
+  try {
+    await prisma.todo.deleteMany({
+      where: {
+        complete: true,
+      },
+    });
+    return NextResponse.json({ message: "Deleted all completed todos" });
+  } catch (error: any) {
+    return NextResponse.json(
+      {
+        message: error.message,
       },
       { status: 400 }
     );

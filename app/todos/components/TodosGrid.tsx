@@ -1,8 +1,8 @@
 "use client";
 import { Todo } from "@prisma/client";
-import { TodoItem } from "./TodoItem";
 import { updateTodo } from "../helpers/todos";
 import { useRouter } from "next/navigation";
+import { TodoItem } from "..";
 
 interface TodosGridProps {
   todos?: Todo[];
@@ -12,8 +12,7 @@ export const TodosGrid = ({ todos }: TodosGridProps) => {
   const router = useRouter();
 
   const toggleTodo = async (id: string, complete: boolean) => {
-    const updatedTodo = await updateTodo(id, complete);
-    console.log("updatedTodo: ", updatedTodo);
+    await updateTodo(id, complete);
     router.refresh();
   };
 
