@@ -39,6 +39,7 @@ export const Sidebar = () => {
 
         <div className="mt-8 text-center">
           <Image
+            priority={false}
             src="/aipfp.jpeg"
             alt="profile picture"
             width={100}
