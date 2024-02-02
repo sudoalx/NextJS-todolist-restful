@@ -4,30 +4,30 @@ import { NextResponse } from "next/server";
 export async function GET(request: Request) {
   await prisma.todo.deleteMany();
 
-  const todo = await prisma.todo.createMany({
+  await prisma.todo.createMany({
     data: [
       {
-        description: "Mind Stone",
+        description: "Collect Mind Stone",
         complete: true,
       },
       {
-        description: "Soul Stone",
+        description: "Collect Soul Stone",
         complete: false,
       },
       {
-        description: "Power Stone",
+        description: "Collect Power Stone",
         complete: false,
       },
       {
-        description: "Time Stone",
+        description: "Collect Time Stone",
         complete: false,
       },
       {
-        description: "Reality Stone",
+        description: "Collect Reality Stone",
         complete: true,
       },
       {
-        description: "Space Stone",
+        description: "Collect Space Stone",
         complete: false,
       },
     ],
