@@ -1,0 +1,13 @@
+.todoItem {
+  /* base dark theme item design */
+  @apply rounded-lg shadow-sm p-5 border border-gray-700 flex flex-col sm:flex-row justify-start items-center gap-2 sm:gap-0 cursor-pointer bg-gray-800;
+}
+.completed {
+  /* dark theme completed item design */
+  @apply border border-green-500 line-through;
+}
+
+.pending {
+  /* dark theme pending item design */
+  @apply border border-red-500;
+}
