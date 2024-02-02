@@ -24,7 +24,16 @@ export const TodosGrid = ({ todos }: TodosGridProps) => {
         {todos?.map((todo) => (
           <TodoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} />
         ))}
+        {!todos?.length && <NoTodos />}
       </div>
     </>
+  );
+};
+
+const NoTodos = () => {
+  return (
+    <p className="text-center text-xl font-bold text-gray-600">
+      No todos found. Add a new todo to get started.
+    </p>
   );
 };

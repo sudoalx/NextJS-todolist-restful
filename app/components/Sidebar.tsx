@@ -60,10 +60,10 @@ export const Sidebar = () => {
 
       <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
         <button
-          className="px-4 py-3 flex items-center space-x-4 group w-full border hover:bg-red-500 rounded-lg text-gray-300 hover:text-white transition duration-300"
+          className="px-4 py-3 flex items-center space-x-4 group w-full border hover:bg-red-500 rounded-lg hover:text-white transition duration-300 font-bold"
           aria-label="Logout"
         >
-          <CiLogout />
+          <CiLogout className="text-xl group-hover:text-white transition duration-300 font-bold" />
           <span>Logout</span>
         </button>
       </div>
