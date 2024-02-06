@@ -1,6 +1,5 @@
 "use client";
 import { Todo } from "@prisma/client";
-import { useRouter } from "next/navigation";
 import { TodoItem } from "..";
 import { toggleTodo } from "../actions/todo-actions";
 
