@@ -3,7 +3,7 @@ import { NewTodo } from "@/app/todos/components/NewTodo";
 import prisma from "@/lib/prisma";
 
 export const metadata = {
-  title: "Rest Todos Page",
+  title: "Restful API Todos Page",
   description: "Rest Todos Page",
 };
 
