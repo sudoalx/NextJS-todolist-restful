@@ -2,23 +2,16 @@
 
 import { useState } from "react";
 import { IoTrashOutline } from "react-icons/io5";
-import { createTodo, deleteTodos } from "../helpers/todos";
-import { useRouter } from "next/navigation";
+import { addTodo, deleteCompletedTodos } from "../actions/todo-actions";
 
 export const NewTodo = () => {
   const [description, setDescription] = useState("");
 
-  const router = useRouter();
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (description.trim().length === 0) return;
-    await createTodo(description);
-    router.refresh();
-  };
-
-  const deleteCompleted = async () => {
-    await deleteTodos();
-    router.refresh();
+    await addTodo(description);
+    setDescription("");
   };
 
   return (
@@ -43,7 +36,7 @@ export const NewTodo = () => {
         </button>
 
         <button
-          onClick={() => deleteCompleted()}
+          onClick={() => deleteCompletedTodos()}
           type="button"
           className="flex items-center justify-center rounded ml-2 bg-red-500 p-2 text-white hover:bg-red-700 transition-all"
         >
