@@ -1,5 +1,6 @@
 "use client";
 
+import { setCookie } from "cookies-next";
 import { useState } from "react";
 
 // https://tailwindcomponents.com/component/radio-buttons-1
@@ -17,6 +18,7 @@ export const TabBar = ({
 
   const onTabSelected = (tab: number) => {
     setSelected(tab);
+    setCookie("currentTab", tab.toString());
   };
 
   return (
@@ -28,7 +30,7 @@ export const TabBar = ({
       {tabOptions.map((tab) => (
         <div key={tab}>
           <input
-            checked={selected === parseInt(tab)}
+            checked={selected == parseInt(tab)}
             type="radio"
             id={tab}
             onChange={() => onTabSelected(parseInt(tab))}
@@ -38,7 +40,7 @@ export const TabBar = ({
           <label
             onClick={() => onTabSelected(parseInt(tab))}
             htmlFor={tab}
-            className="transition-all block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all peer-checked:shadow-lg hover:bg-blue-500 hover:font-bold hover:text-white hover:shadow-lg"
+            className="block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white transition-all peer-checked:shadow-lg hover:bg-blue-500 hover:font-bold hover:text-white hover:shadow-lg duration-300 ease-in-out"
           >
             {tab}
           </label>
