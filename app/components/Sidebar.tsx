@@ -8,6 +8,7 @@ import {
   IoCheckboxOutline,
   IoListOutline,
 } from "react-icons/io5";
+import { RxCookie } from "react-icons/rx";
 
 const menuItems = [
   {
@@ -24,6 +25,11 @@ const menuItems = [
     icon: <IoListOutline />,
     path: "/dashboard/server-actions",
     label: "Server Actions",
+  },
+  {
+    icon: <RxCookie />,
+    path: "/dashboard/cookies",
+    label: "Cookies",
   },
 ];
 
