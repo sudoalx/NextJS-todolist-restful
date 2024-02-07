@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import {
+  IoBasketOutline,
   IoCalendarOutline,
   IoCheckboxOutline,
   IoListOutline,
@@ -30,6 +31,11 @@ const menuItems = [
     icon: <RxCookie />,
     path: "/dashboard/cookies",
     label: "Cookies",
+  },
+  {
+    icon: <IoBasketOutline />,
+    path: "/dashboard/products",
+    label: "Products",
   },
 ];
 
