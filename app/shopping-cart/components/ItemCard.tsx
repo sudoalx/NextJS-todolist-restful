@@ -1,5 +1,4 @@
 "use client";
-
 import type { Product } from "../../products/data/products";
 import Image from "next/image";
 
@@ -28,9 +27,9 @@ export const ItemCard = ({ product, quantity }: Props) => {
   }
 
   return (
-    <div className="flex flex-col md:flex-row items-center shadow rounded-lg w-full bg-gray-800 border-gray-100">
+    <div className="flex flex-col md:flex-row items-center shadow rounded-lg w-full bg-gray-800 border-gray-100 mb-4">
       {/* Product Image */}
-      <div className="p-2">
+      <div className="p-2 md:w-1/4">
         <Image
           width={200}
           height={200}
@@ -41,7 +40,7 @@ export const ItemCard = ({ product, quantity }: Props) => {
       </div>
 
       {/* Title */}
-      <div className="px-5 pb-5 w-full flex flex-col mt-2">
+      <div className="px-5 pb-5 w-full flex flex-col md:w-1/2 md:mt-0">
         <Link href="#">
           <h3 className="font-semibold text-xl tracking-tight text-white">
             {product.name} -{" "}
@@ -50,7 +49,7 @@ export const ItemCard = ({ product, quantity }: Props) => {
         </Link>
 
         {/* Price and Add to Cart */}
-        <div className="flex flex-col items-start justify-between">
+        <div className="flex flex-col items-start justify-between mt-2">
           <span className="text-gray-900 dark:text-white">
             Quantity: {quantity}
           </span>
@@ -60,19 +59,19 @@ export const ItemCard = ({ product, quantity }: Props) => {
         </div>
       </div>
 
-      <div className="flex p-5 items-center justify-center">
-        <button
-          onClick={onAddToCart}
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          <IoAddCircleOutline size={25} />
-        </button>
-        <span className="text-2xl text-white mx-10">{quantity}</span>
+      <div className="flex p-3 items-center justify-center md:w-1/4">
         <button
           onClick={onRemoveItem}
-          className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+          className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
         >
-          <IoRemove size={25} />
+          <IoRemove size={20} />
+        </button>
+        <span className="text-xl text-white mx-2">{quantity}</span>
+        <button
+          onClick={onAddToCart}
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          <IoAddCircleOutline size={20} />
         </button>
       </div>
     </div>
