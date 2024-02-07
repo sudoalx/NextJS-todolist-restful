@@ -1,4 +1,9 @@
-import { CiBellOn, CiChat1, CiMenuBurger, CiSearch } from "react-icons/ci";
+import {
+  CiChat1,
+  CiMenuBurger,
+  CiSearch,
+  CiShoppingBasket,
+} from "react-icons/ci";
 
 export const TopMenu = () => {
   return (
@@ -42,10 +47,13 @@ export const TopMenu = () => {
             <CiChat1 size={25} />
           </button>
           <button
-            className="flex items-center justify-center w-10 h-10 rounded-xl border bg-gray-800 focus:bg-gray-800 active:bg-gray-700"
+            className="p-2 flex items-center justify-center h-10 rounded-xl border bg-gray-800 focus:bg-gray-800 active:bg-gray-700"
             aria-label="Notifications"
           >
-            <CiBellOn size={25} />
+            <span className="text-xs font-semibold text-gray-300 bg-gray-700 rounded-full w-6 h-6 flex items-center justify-center">
+              10
+            </span>
+            <CiShoppingBasket size={25} className="ml-1" />
           </button>
         </div>
       </div>
