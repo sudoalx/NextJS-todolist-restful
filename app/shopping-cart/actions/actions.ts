@@ -1,12 +1,3 @@
-// 'use client'
-/*
-cookie: cart
-{
-  'uui-123-1': 4,
-  'uui-123-2': 1,
-  'uui-123-3': 2,
-}
-*/
 import { getCookie, hasCookie, setCookie } from "cookies-next";
 
 export const getCookieCart = (): { [id: string]: number } => {
