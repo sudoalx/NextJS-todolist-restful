@@ -7,6 +7,7 @@ import Link from "next/link";
 import { IoAddCircleOutline, IoTrashOutline } from "react-icons/io5";
 import { Star } from "./Star";
 import { addProductToCart } from "@/app/shopping-cart/actions/actions";
+import { useRouter } from "next/navigation";
 
 interface ProductCardProps {
   id: string;
@@ -23,8 +24,11 @@ export const ProductCard = ({
   rating,
   image,
 }: ProductCardProps) => {
+  const router = useRouter();
   const onAddToCart = () => {
     addProductToCart(id);
+
+    router.refresh();
   };
 
   return (

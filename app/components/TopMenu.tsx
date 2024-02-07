@@ -1,3 +1,4 @@
+import { cookies } from "next/headers";
 import {
   CiChat1,
   CiMenuBurger,
@@ -6,6 +7,17 @@ import {
 } from "react-icons/ci";
 
 export const TopMenu = () => {
+  const cookieStore = cookies();
+  const cart = JSON.parse(cookieStore.get("cart")?.value ?? "{}");
+
+  const getTotalItems = () => {
+    let total = 0;
+    for (const key in cart) {
+      total += cart[key];
+    }
+    return total;
+  };
+
   return (
     <div className="sticky z-10 top-0 h-16 border-b bg-gray-900 lg:py-2.5">
       <div className="px-6 flex items-center justify-between space-x-4">
@@ -51,7 +63,7 @@ export const TopMenu = () => {
             aria-label="Notifications"
           >
             <span className="text-xs font-semibold text-gray-300 bg-gray-700 rounded-full w-6 h-6 flex items-center justify-center">
-              10
+              {getTotalItems() ?? 0}
             </span>
             <CiShoppingBasket size={25} className="ml-1" />
           </button>
