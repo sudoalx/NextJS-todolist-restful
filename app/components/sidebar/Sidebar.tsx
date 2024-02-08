@@ -1,5 +1,4 @@
-import { CiLogout } from "react-icons/ci";
-import { SidebarItem } from ".";
+import { LogoutButton, SidebarItem } from "..";
 import Image from "next/image";
 import Link from "next/link";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
@@ -12,7 +11,7 @@ import {
 } from "react-icons/io5";
 import { RxCookie } from "react-icons/rx";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "../../api/auth/[...nextauth]/route";
 
 const menuItems = [
   {
@@ -87,13 +86,7 @@ export const Sidebar = async () => {
       </div>
 
       <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
-        <button
-          className="px-4 py-3 flex items-center space-x-4 group w-full border hover:bg-red-500 rounded-lg hover:text-white transition duration-300 font-bold"
-          aria-label="Logout"
-        >
-          <CiLogout className="text-xl group-hover:text-white transition duration-300 font-bold" />
-          <span>Logout</span>
-        </button>
+        <LogoutButton />
       </div>
     </aside>
   );
