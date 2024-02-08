@@ -1,6 +1,6 @@
 # Admin tools
 
-Simple admin tools demo web app for practicing with React, Redux, Next.js.
+Simple admin tools demo web app for practicing with React, Redux, Next.js, Server side and client side cookies, JWT, Prisma, session management, and more.
 
 ## Development
 
@@ -30,10 +30,6 @@ Copy the `.env.sample` file to `.env` and fill in the values for the database co
     cp .env.sample .env
     ```
 
-    ```bash
-    DATABASE_URL="postgresql://<username>:<password>@localhost:5432/<database>?schema=public"
-    ```
-
 4. Create the database
 Run the following command to create the database with prisma:
 
@@ -44,13 +40,9 @@ Run the following command to create the database with prisma:
 
 5. Execute the database seed
 
-Make a GET request to the following endpoint to seed the database (you can just use your browser for this):
+Make a GET request to the following endpoint to seed the database (you can use your browser for this): <http://localhost:3000/api/seed>
 
-    ```bash
-    http://localhost:3000/api/seed
-    ```
-
-### Run the app
+### Run in development mode
 
 Run the following command to start the app in development mode:
 
