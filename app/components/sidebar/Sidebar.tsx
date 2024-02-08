@@ -11,7 +11,7 @@ import {
 } from "react-icons/io5";
 import { RxCookie } from "react-icons/rx";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../../api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/authOptions";
 
 const menuItems = [
   {
