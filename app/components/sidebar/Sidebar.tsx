@@ -48,10 +48,11 @@ const menuItems = [
 
 export const Sidebar = async () => {
   const session = await getServerSession(authOptions);
-  const { name, email, image } = session?.user ?? {
+  const { name, email, image, roles } = session?.user ?? {
     name: "No user",
     email: "No email",
     image: "/images/placeholder.jpeg",
+    roles: ["no-roles"],
   };
 
   return (
@@ -75,6 +76,9 @@ export const Sidebar = async () => {
           <h5 className=" mt-4 text-xl font-semibold text-gray-300 lg:block">
             {name}
           </h5>
+          <span className=" text-gray-400 lg:block capitalize">
+            {roles?.join(", ")}
+          </span>
           <span className=" text-gray-400 lg:block">{email}</span>
         </div>
 

@@ -23,15 +23,29 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
-      console.log("signIn: ", { user, account, profile, email, credentials });
       return true;
     },
     async jwt({ token, user, account, profile }) {
-      console.log("jwt: ", { token, user, account, profile });
+      const dbUser = await prisma.user.findUnique({
+        where: { email: token.email ?? "no-email" },
+      });
+
+      if (dbUser?.isActive === false) {
+        throw new Error("User is not active");
+      }
+
+      token.roles = dbUser?.roles ?? ["no-roles"];
+      token.id = dbUser?.id ?? "no-uuid";
+
       return token;
     },
     async session({ session, user, token }) {
-      console.log("session: ", { session, user, token });
+      session.user = session.user ?? {
+        roles: ["no-roles"],
+        id: "no-uuid",
+      };
+      session.user.roles = token.roles;
+      session.user.id = token.id;
       return session;
     },
   },

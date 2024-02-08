@@ -49,6 +49,13 @@ export default async function DashboardPage() {
                 readOnly
               />
             </span>
+            <br />
+            <span className="text-green-500">Session:</span>{" "}
+            <textarea
+              className="bg-gray-700 text-gray-300 p-1 rounded-md w-full"
+              value={JSON.stringify(session, null, 2)}
+              readOnly
+            />
           </>
         ) : (
           <span className="text-red-500">No session</span>

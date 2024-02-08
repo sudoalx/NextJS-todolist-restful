@@ -33,6 +33,14 @@ export default function ProfilePage() {
         <br />
         <span className="font-semibold">Email:</span>{" "}
         <span className="text-gray-300">{email ?? "No email"}</span>
+        <br />
+        <span className="font-semibold">Roles:</span>{" "}
+        <span className="text-gray-300">
+          {session?.user?.roles?.join(", ") ?? "No roles"}
+        </span>
+        <br />
+        <span className="font-semibold">UUID:</span>{" "}
+        <span className="text-gray-300">{session?.user?.id ?? "No UUID"}</span>
       </div>
     </div>
   );
