@@ -25,7 +25,7 @@ export default async function DashboardPage() {
                 width={80}
                 height={80}
                 className="w-20 h-20 rounded-full mx-auto"
-                src={image ?? ""}
+                src={image ?? "/images/placeholder.jpeg"}
                 alt={name ?? "Placeholder"}
               />
             </span>
