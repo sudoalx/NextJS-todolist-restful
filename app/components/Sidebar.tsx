@@ -8,6 +8,7 @@ import {
   IoCalendarOutline,
   IoCheckboxOutline,
   IoListOutline,
+  IoPersonOutline,
 } from "react-icons/io5";
 import { RxCookie } from "react-icons/rx";
 import { getServerSession } from "next-auth";
@@ -38,6 +39,11 @@ const menuItems = [
     icon: <IoBasketOutline />,
     path: "/dashboard/products",
     label: "Products",
+  },
+  {
+    icon: <IoPersonOutline />,
+    path: "/dashboard/profile",
+    label: "Profile",
   },
 ];
 
