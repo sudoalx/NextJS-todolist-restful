@@ -13,7 +13,7 @@ export default function ProfilePage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-semibold">Profile</h1>
+      <h1 className="text-2xl font-semibold">Profile (Client-side Session)</h1>
       <hr />
       <div className="mt-4 w-full flex flex-col justify-center items-center">
         <h2 className="text-xl font-semibold">Profile Picture</h2>
