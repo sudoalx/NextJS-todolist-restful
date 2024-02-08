@@ -1,8 +1,9 @@
 import { getServerSession } from "next-auth";
 import { WidgetItem } from "../components/WidgetItem";
 import { redirect } from "next/navigation";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+
 import Image from "next/image";
+import { authOptions } from "../api/auth/[...nextauth]";
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions);
@@ -35,6 +36,7 @@ export default async function DashboardPage() {
                 className="bg-gray-700 text-gray-300 p-1 rounded-md w-full text-center"
                 type="text"
                 value={name ?? ""}
+                readOnly
               />
             </span>
             <br />
@@ -44,6 +46,7 @@ export default async function DashboardPage() {
                 className="bg-gray-700 text-gray-300 p-1 rounded-md w-full text-center"
                 type="text"
                 value={email ?? ""}
+                readOnly
               />
             </span>
           </>
