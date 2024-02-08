@@ -3,7 +3,7 @@ import { WidgetItem } from "../components/WidgetItem";
 import { redirect } from "next/navigation";
 
 import Image from "next/image";
-import { authOptions } from "../api/auth/[...nextauth]";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions);
