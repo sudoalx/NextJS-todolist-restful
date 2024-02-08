@@ -5,6 +5,7 @@ import { Adapter } from "next-auth/adapters";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { signInEmailPassword } from "@/auth/actions/auth-actions";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma) as Adapter,
@@ -23,17 +24,16 @@ export const authOptions: NextAuthOptions = {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials, req) {
-        const user = {
-          id: 1,
-          name: "J Smith",
-          email: "alex@sudoalex.dev",
-        };
+      async authorize(credentials) {
+        const user = await signInEmailPassword(
+          credentials!.email,
+          credentials!.password
+        );
+
         if (user) {
           return user;
-        } else {
-          return null;
         }
+        return null;
       },
     }),
   ],
