@@ -9,7 +9,7 @@ export async function GET(request: Request) {
     data: {
       email: "test@sudoalex.dev",
       name: "Alex",
-      password: "password",
+      password: "$2a$10$Bm2w4fRVyU0t3Cst.CyJV.xp5St5VZsf0T9wLQ1LZujfe9P7i.HkS",
       roles: ["admin", "user", "editor"],
       todos: {
         create: [
